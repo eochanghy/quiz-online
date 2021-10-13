@@ -1,0 +1,10 @@
+.txtQuestion{
+    width: 110%;
+    height: 100px;
+    resize: none;
+}
+.txtOption{
+    width: 110%;
+    height: 50px;
+    resize: none;
+}

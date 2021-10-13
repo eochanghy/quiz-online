@@ -1,0 +1,37 @@
+*{
+    font-family: sans-serif;
+}
+body{
+    background: url(../../image/bg.jpg);
+    width: 3px;
+    height: 100%;
+    background-repeat: repeat-x;
+}
+.display{
+    padding: 100px 450px;
+}
+.header{
+    margin-bottom: 0px;
+}
+.content{
+    margin-top: 0px;
+    width: 700px;
+    min-height: 450px;
+    background: white;
+    overflow: auto;
+}
+.content_body{
+    margin: 40px 100px;
+}
+.content_body_title{
+    margin-bottom: 30px;
+}
+.content_body_font{
+    color: #48748d;
+}
+.content_body_blue{
+    color: blue;
+}
+.content_body_red,.invalid{
+    color: red;
+}

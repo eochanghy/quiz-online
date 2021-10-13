@@ -1,0 +1,38 @@
+th{
+    text-align: left;
+    height: 40px;
+}
+td{
+    height: 50px;
+    vertical-align: top;
+}
+#td_date{
+    width: 100px;
+}
+#bottomPagger{
+    float: right;
+    font-size: 15px;
+    background: white;
+    margin-top: 15px;
+    padding-bottom: 2px;
+}
+#bottomPagger a{
+    padding: 0 8px;
+    text-decoration: none;
+    border: 1px solid gray;
+    color: #48748d;
+}
+#bottomPagger span{
+    padding: 0 10px;
+    background: #48748d;
+    color: white;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+/*#bottomPagger .gap{
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 2px;
+    margin-right: 2px;
+}*/

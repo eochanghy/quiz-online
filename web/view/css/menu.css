@@ -1,0 +1,17 @@
+.menu{
+    background: url(../../image/menu_bg.gif);
+    width: 663px;
+    height: 51px;
+    margin: 0 auto;   
+}
+.menu_bar{
+    text-align: center;
+    padding-top: 15px;
+}
+.menu_option{
+    font-family: sans-serif;
+    margin-right: 20px;
+    font-weight: bold;
+    color: #796959;
+    text-decoration: none;
+}
