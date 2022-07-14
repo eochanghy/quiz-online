@@ -1,5 +1,48 @@
 #timeRemain,.btnNext{
     text-align: right;
 }
+.option{
+    background-color: #e6e4e4;
+    padding: 12px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    position: relative;
+    text-transform: capitalize;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+    overflow: hidden;
+}
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 
+.selected::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #009688;
+    z-index: -1;
+    animation: slideInLeft .5s ease forwards;
+}
+
+@keyframes slideInLeft {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
 

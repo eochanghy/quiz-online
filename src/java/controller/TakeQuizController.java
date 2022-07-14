@@ -120,6 +120,8 @@ public class TakeQuizController extends HttpServlet {
                             //All option choosed are correct with result
                             if (Integer.parseInt(option[i]) == resultQuestion.get(j)) {
                                 numCorrect++;
+                            } else {
+                                numCorrect = -1;
                             }
                         }
                     }

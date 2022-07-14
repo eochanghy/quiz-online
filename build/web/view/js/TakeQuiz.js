@@ -26,3 +26,12 @@ function setTime(timeEnd){
     }, 1000);
 }
 
+function handleOptionClick(param) {
+    if (!param.children[0].checked) {
+        param.children[0].checked = true;
+        param.classList.add("selected");
+    } else {
+        param.children[0].checked = false;
+        param.classList.remove("selected");
+    }
+}
