@@ -50,7 +50,7 @@ public class DeleteController extends HttpServlet {
             throws ServletException, IOException {
         try {
             response.setContentType("text/html;charset=UTF-8");
-            int id = Integer.parseInt(request.getParameter("id"));
+            String id = request.getParameter("id");
             QuestionDAO questionDAO = new QuestionDAOImpl();
             questionDAO.deleteQuestion(id);
             response.sendRedirect("Manage");

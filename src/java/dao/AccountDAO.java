@@ -11,6 +11,7 @@
 package dao;
 
 import entity.Account;
+import java.util.List;
 
 /**
  * Defines method about account table to implement. 
@@ -25,6 +26,8 @@ import entity.Account;
  */
 public interface AccountDAO {
 
+    List<Account> getAllAccount() throws Exception;
+    
     /**
      * Gets Account by user name and password. The account that have user name
      * password correct with input will be returned. The result is a

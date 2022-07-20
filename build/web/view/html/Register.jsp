@@ -11,80 +11,87 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register</title>
-        <link href="view/css/common.css" rel="stylesheet" type="text/css"/>
-        <link href="view/css/header.css" rel="stylesheet" type="text/css"/>
+        <link href="view/css/layout.css" rel="stylesheet" type="text/css"/>
         <link href="view/css/login.css" rel="stylesheet" type="text/css"/>
-        <link href="view/css/menu.css" rel="stylesheet" type="text/css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     </head>
     <body>
-        <div class="display">
-            <!--Header-->
-            <div class="header">
-                <jsp:include page="Header.jsp"/>
-            </div>
-            <div class="content">
-                <!--Menu Bar-->
-                <jsp:include page="Menu.jsp"/>
-                <div class="content_body">
-                    <p class="content_body_title" id="title">Registration Form</p>
-                    <form action="Register" method="post">
-                        <table>
-                            <tr>                              
-                                <td valign="top" style="position: absolute;"><span class="content_body_font">User Name:</span></td>
-                                <td style="padding-left: 12px;">
-                                    <c:if test="${not empty usernameFail}">
-                                        <span class="content_body_red">${usernameFail}</span><br/>
-                                    </c:if>
-                                    <input type="text" value="${accountRegis.getName()}" name="user">
+        <section class="h-100 h-custom section-contain" style="background-color: #8fc4b7;">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col lg-8 col-xl-5">
+                        <div class="card rounded-3">
+                            <img src="./image/nha-alpha.jpg" class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;" alt="Sample photo" />
+                            <div class="card-body p-4 p-md-12">
+                                <div class="login2">
+                                    <div class="center">
+                                        <h1>Register</h1>
 
-                                </td>
-                            </tr>            
-                            <tr>
-                                <td valign="top"><span class="content_body_font">Password:</span></td>
-                                <td style="padding-left: 12px;">
-                                    <c:if test="${not empty passwordFail}">
-                                        <span class="content_body_red">${passwordFail}</span><br/>
-                                    </c:if>
-                                    <input type="password" value="${accountRegis.getPassword()}" name="password">
+                                        <form action="Register" method="post">
+                                            <div class="txt_field">
+                                                <c:if test="${not empty usernameFail}">
+                                                    <p class="content_body_red">${usernameFail}</p>
+                                                </c:if>
+                                                <input type="text" value="${user}" name="user" required />
+                                                <span></span>
+                                                <label >Username</label>
+                                            </div>
+                                            <div class="txt_field">
+                                                <c:if test="${not empty passwordFail}">
+                                                    <p class="content_body_red">${passwordFail}</p>
+                                                </c:if>
+                                                <input type="password" value="${password}" name="password" required />
+                                                <span></span>
+                                                <label >Password</label>
+                                            </div>                                           
+                                            <div class="txt_field">
+                                                <c:if test="${not empty emailFail}">
+                                                    <p class="content_body_red">${emailFail}</p>
+                                                </c:if>
+                                                <input type="text" value="${accountRegis.getEmail()}" name="email" required>
+                                                <span></span>
+                                                <label >Email</label>
+                                            </div>
+                                            <div class="txt_field">
+                                                <input type="number" value="${accountRegis.getAge()}" name="age" required>
+                                                <span></span>
+                                                <label >Age</label>
+                                            </div>
+                                            <div class="txt_field">
+                                                <input type="text" value="${accountRegis.getClassName()}" name="class" required>
+                                                <span></span>
+                                                <label >Class</label>
+                                            </div>
+                                            <div class="select_field">
+                                                <span>Type: </span>
+                                                <select name="type">
+                                                    <option value="0"
+                                                            <c:if test="${type eq 0}">
+                                                                selected="selected"
+                                                            </c:if>>Student</option>
+                                                    <option value="1"
+                                                            <c:if test="${type eq 1}">
+                                                                selected="selected"
+                                                            </c:if>>Teacher</option>
+                                                </select>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="content_body_font">UserType:</span></td>
-                                <td style="padding-left: 12px;">
-                                    <select name="type">
-                                        <option value="0"
-                                                <c:if test="${type eq 0}">
-                                                    selected="selected"
-                                                </c:if>>Student</option>
-                                        <option value="1"
-                                                <c:if test="${type eq 1}">
-                                                    selected="selected"
-                                                </c:if>>Teacher</option>
-                                    </select>
-                                </td>
-                            </tr>
+                                            </div>
+                                            <input type="submit" value="Sign Up" />
+                                            <div class="signup_link">
+                                                Already have account? <a href="Login">Login</Link>
+                                            </div>
+                                        </form>
+                                    </div>
 
-                            <tr>
-                                <!--Input email-->
-                                <td valign="top"><span class="content_body_font">Email:</span></td>
-                                <td style="padding-left: 12px;">
-                                    <c:if test="${not empty emailFail}">
-                                        <span class="content_body_red">${emailFail}</span><br/>
-                                    </c:if>
-                                    <input type="text" value="${accountRegis.getEmail()}" name="email">
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><input class="content_body_submit" type="submit" value="Register"></td>
-                            </tr>
-                        </table>
-                    </form>
+                                </div >
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
 
     </body>

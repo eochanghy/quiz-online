@@ -13,9 +13,11 @@ package controller;
 import dao.QuestionDAO;
 import dao.impl.QuestionDAOImpl;
 import entity.Question;
+import entity.QuestionSingle;
 import entity.Quiz;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -55,14 +57,17 @@ public class TakeQuizController extends HttpServlet {
             Quiz quiz = (Quiz) request.getSession().getAttribute("quiz");
             //get total number of question in quiz
             int numQuestion = Integer.parseInt(request.getParameter("number"));
+            String subject = request.getParameter("subject");
+            String level = request.getParameter("level");
             //The quiz hasn't started
             if (quiz == null) {
                 QuestionDAO questionDAO = new QuestionDAOImpl();
-                ArrayList<Question> questions = new ArrayList<>();
+                List<QuestionSingle> questions = new ArrayList<>();
                 //get random question
-                questions = questionDAO.getRandomQuestion(numQuestion);
+                questions = questionDAO.getRandomQuestion(numQuestion, subject, level);
+                int timeLevel = level.equalsIgnoreCase("Easy") ? 15 : level .equalsIgnoreCase("Medium") ? 10 : 5;
                 //set time end to the quiz
-                long timeEnd = System.currentTimeMillis() + numQuestion * 10 * 1000;
+                long timeEnd = System.currentTimeMillis() + numQuestion * timeLevel * 1000;
                 //create quiz
                 quiz = new Quiz();
                 quiz.setEndTime(timeEnd);
@@ -110,27 +115,17 @@ public class TakeQuizController extends HttpServlet {
                 String[] option = request.getParameterValues("option");
                 //Count number of correct answer
                 int numCorrect = 0;
-                Question currentQuestion = quiz.getQuestions().get(currentQuestionIndex);
-                ArrayList<Integer> resultQuestion = currentQuestion.getResult();
+                QuestionSingle currentQuestion = quiz.getQuestions().get(currentQuestionIndex);
+                String resultQuestion = currentQuestion.getResult();
                 //score of quiz
                 double score = quiz.getScore();
                 if (option != null) {
                     for (int i = 0; i < option.length; i++) {
-                        for (int j = 0; j < resultQuestion.size(); j++) {
-                            //All option choosed are correct with result
-                            if (Integer.parseInt(option[i]) == resultQuestion.get(j)) {
-                                numCorrect++;
-                            } else {
-                                numCorrect = -1;
-                            }
+                        double score1Question = 10 * 1 / (quiz.getQuestions().size() * 1.0);
+                        if (option[i].equalsIgnoreCase(resultQuestion)) {
+                            score += score1Question;
                         }
-                    }
-                    //Calculate score of 1 question
-                    double score1Question = 10 * 1 / (quiz.getQuestions().size() * 1.0);
-                    //Calculate score archieved
-                    if (numCorrect == resultQuestion.size()) {
-                        score += score1Question;
-                    }
+                    }                   
                 }
                 quiz.setScore(score);
                 //If time run out

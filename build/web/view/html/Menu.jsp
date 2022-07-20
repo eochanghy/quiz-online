@@ -13,13 +13,17 @@
         <div class="menu">
             <nav class="menu_bar">
                 <a href="Home" class="menu_option">Home</a>
-                <a href="ChooseQuestion" class="menu_option">Take quiz</a>
-                <a href="MakeQuiz" class="menu_option">Make Quiz</a>
-                <a href="Manage" class="menu_option">Manage Quiz</a>
+                <c:if test="${account.getType() == 'student'}">
+                    <a href="ChooseQuestion" class="menu_option">Take quiz</a>
+                </c:if>
+                <c:if test="${account.getType() == 'teacher'}">
+                    <a href="MakeQuiz" class="menu_option">Make Quiz</a>
+                    <a href="Manage" class="menu_option">Manage Quiz</a>
+                </c:if>
                 <c:if test="${not empty account}">
                     <a href="LogOut" class="menu_option">Log Out</a>
                 </c:if>
-                
+
             </nav>
         </div>
     </body>

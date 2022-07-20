@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
 .content{
     margin-top: 0px;
     width: 100%;
@@ -20,4 +25,11 @@
 }
 .content_body_red,.invalid{
     color: red;
+}
+.red-btn {
+    border: 1px solid #ff6961;
+    background-color: #fff;
+}
+.red-btn:hover {
+    background-color: #ff6961;
 }

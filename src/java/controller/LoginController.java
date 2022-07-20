@@ -11,9 +11,13 @@
 package controller;
 
 import dao.AccountDAO;
+import dao.QuestionDAO;
 import dao.impl.AccountDAOImpl;
+import dao.impl.QuestionDAOImpl;
 import entity.Account;
+import entity.QuestionSingle;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -47,7 +51,14 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("view/html/Login.jsp").forward(request, response);
+        try {
+//            QuestionDAO qsDao = new QuestionDAOImpl();
+//            List<QuestionSingle> qs = qsDao.getAllQuestion();
+//            System.out.println(qs.get(31));
+            request.getRequestDispatcher("view/html/Login.jsp").forward(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

@@ -11,6 +11,7 @@
 package entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Contains properties, constructor, getter, setter of Quiz object.
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 public class Quiz {
 
     private double score;
-    private ArrayList<Question> questions;
+    private List<QuestionSingle> questions;
     private long endTime;
     private int currentQuestion;
 
@@ -33,93 +34,45 @@ public class Quiz {
     public Quiz() {
     }
 
-    /**
-     * Constructor has parameters used to initialize an object with information
-     * passed in Parameters that need to be passed include score, questions,
-     * endTime.
-     *
-     * @param score the score of Quiz. It is an double number.
-     * @param questions the question of Quiz. It is a
-     * <code>java.util.ArrayList</code> object
-     * @param endTime the end time of Quiz. It is an long number.
-     */
-    public Quiz(double score, ArrayList<Question> questions, long endTime) {
+    public Quiz(double score, List<QuestionSingle> questions, long endTime, int currentQuestion) {
         this.score = score;
         this.questions = questions;
         this.endTime = endTime;
+        this.currentQuestion = currentQuestion;
     }
 
-    /**
-     * Get value from score attribute
-     *
-     * @return score of object
-     */
     public double getScore() {
         return score;
     }
 
-    /**
-     * Set value for score attribute
-     *
-     * @param score the score of Quiz. It is an double number.
-     */
     public void setScore(double score) {
         this.score = score;
     }
 
-    /**
-     * Get value from questions attribute
-     *
-     * @return questions of object
-     */
-    public ArrayList<Question> getQuestions() {
+    public List<QuestionSingle> getQuestions() {
         return questions;
     }
 
-    /**
-     * Set value for questions attribute
-     *
-     * @param questions the questions of Quiz. It is an
-     * <code>java.util.ArrayList</code> object.
-     */
-    public void setQuestions(ArrayList<Question> questions) {
+    public void setQuestions(List<QuestionSingle> questions) {
         this.questions = questions;
     }
 
-    /**
-     * Get value from endTime attribute
-     *
-     * @return endTime of object
-     */
     public long getEndTime() {
         return endTime;
     }
 
-    /**
-     * Set value for endTime attribute
-     *
-     * @param endTime the end time of Quiz. It is an long number.
-     */
     public void setEndTime(long endTime) {
         this.endTime = endTime;
     }
 
-    /**
-     * Get value from currentQuestion attribute
-     *
-     * @return current Question of object
-     */
     public int getCurrentQuestion() {
         return currentQuestion;
     }
 
-    /**
-     * Set value for currentQuestion attribute
-     *
-     * @param currentQuestion the current Question of Quiz. It is an int number.
-     */
     public void setCurrentQuestion(int currentQuestion) {
         this.currentQuestion = currentQuestion;
     }
+
+    
 
 }

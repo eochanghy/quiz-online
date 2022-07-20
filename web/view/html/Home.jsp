@@ -42,6 +42,14 @@
                                         <span class="content_body_font">Email: </span>
                                         <span class="content_body_blue">${account.email}</span>
                                     </p>
+                                    <p>
+                                        <span class="content_body_font">Age: </span>
+                                        <span class="content_body_blue">${account.age}</span>
+                                    </p>
+                                    <p>
+                                        <span class="content_body_font">Class: </span>
+                                        <span class="content_body_blue">${account.className}</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>

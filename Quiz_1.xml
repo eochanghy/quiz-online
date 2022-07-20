@@ -1,0 +1,944 @@
+<?xml version="1.0"?><quiz>
+    <items>
+        <item id="1">
+            <question>Which is greater than 4?</question>
+            <answer correct="y">5</answer>
+            <answer>-5</answer>
+            <answer>1</answer>
+            <answer>0</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="3">
+            <question>Combine terms: 12a + 26b -4b ? 16a.</question>
+            <answer>4a + 22b</answer>
+            <answer correct="y">-4a + 22b</answer>
+            <answer> -28a + 30b</answer>
+            <answer>28a + 30b</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="4">
+            <question>What is 2x(3x10+10)</question>
+            <answer>60</answer>
+            <answer>30</answer>
+            <answer>50</answer>
+            <answer correct="y">80</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="5">
+            <question>(4 ? 5) ? (13 ? 18 + 2).</question>
+            <answer correct="y">2</answer>
+            <answer>-1</answer>
+            <answer>-2</answer>
+            <answer>1</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="6">
+            <question>What is |-26|?</question>
+            <answer correct="y">26</answer>
+            <answer>-26</answer>
+            <answer>0</answer>
+            <answer>1</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="7">
+            <question>Multiply: (x ? 4)(x + 5)</question>
+            <answer> x2 + 5x - 20,</answer>
+            <answer correct="y">x2 - 4x - 20</answer>
+            <answer>x2 - x - 20</answer>
+            <answer>x2 + x - 20.</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="8">
+            <question> Factor: 5x2 ? 15x ? 20</question>
+            <answer correct="y"> 5(x-4)(x+1)</answer>
+            <answer>-2(x-4)(x+5)</answer>
+            <answer>-5(x+4)(x-1)</answer>
+            <answer>5(x+4)(x+1)</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="9">
+            <question>3y(x ? 3) -2(x ? 3)</question>
+            <answer>Red</answer>
+            <answer correct="y">Yellow</answer>
+            <answer>Magenta</answer>
+            <answer>Cyan</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="10">
+            <question>Which country is located in the European continent?</question>
+            <answer correct="y">(x ? 3)(x ? 3)</answer>
+            <answer>(x ? 3)^2</answer>
+            <answer>(x ? 3)(3y ? 2)</answer>
+            <answer> 3y(x ? 3)</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="11">
+            <question> Find the value of 3 + 2 ? (8 ? 3)
+            </question>
+            <answer correct="y">25</answer>
+            <answer>24</answer>
+            <answer>13</answer>
+            <answer>15</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="12">
+            <question>3x4y3 ? 48y3</question>
+            <answer correct="y">3y3(x4 ? 16)</answer>
+            <answer>(x2)2 - 42</answer>
+            <answer>3y3(x2 + 4)(x + 2)(x -2)</answer>
+            <answer>y3(x2 + 4)(x2 - 4).</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="13">
+            <question>The value of x + x(xx) when x = 2 is</question>
+            <answer correct="y">16</answer>
+            <answer>18</answer>
+            <answer>10</answer>
+            <answer>36</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="15">
+            <question>The distance light travels in one year is approximately 5,870,000,000,000 miles. The distance light travels in 100 years is:</question>
+            <answer correct="y">87 ? 108 miles</answer>
+            <answer>587 ? 10-12 miles</answer>
+            <answer>587 ? 1012 miles</answer>
+            <answer> 587 ? 1010 miles</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="16">
+            <question>A man has $ 10,000 to invest. He invests $ 4000 at 5 % and $ 3500 at 4 %. In order to have a yearly income of $ 500, he must invest the remainder at:</question>
+            <answer> 6 %</answer>
+            <answer> 6.1%</answer>
+            <answer>6.4%</answer>
+            <answer correct="y">6.3%</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="17">
+            <question>If (0.2)x = 2 and log 2 = 0.3010, then the value of x to the nearest tenth is:</question>
+            <answer correct="y">-10.0</answer>
+            <answer>-0.5</answer>
+            <answer>-0.4</answer>
+            <answer>10.0</answer>
+            <subject>Math</subject>
+            <level>Easy</level>
+        </item>
+        <item id="18">
+            <question>Joey had 6 siblings. All of them were born 2 years apart. The youngest is Chloe who is only 7 years old while Joey is the eldest. Calculate Joey?s age</question>
+            <answer>12</answer>
+            <answer correct="y">18</answer>
+            <answer>19</answer>
+            <answer>22</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="19">
+            <question>There are 49 dogs signed up to compete in the dog show. There are 36 more small dogs than large dogs signed up to compete. How many small dogs are signed up to compete?</question>
+            <answer>13</answer>
+            <answer correct="y">42</answer>
+            <answer>45.5</answer>
+            <answer>6.5</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="20">
+            <question> A pizza is divided into 12 slices. If there are eight slices left, what fraction of the pizza is remaining?</question>
+            <answer>3/4</answer>
+            <answer correct="y">1/3</answer>
+            <answer>2/3</answer>
+            <answer>2/4</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="21">
+            <question>There are ten houses on the street. Three people live in each house. How many people live on the street?</question>
+            <answer>20</answer>
+            <answer>13</answer>
+            <answer correct="y">30</answer>
+            <answer>10</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="22">
+            <question>In a recipe, you have to add one cup of sugar for every four cups of flour. What is the ratio of sugar to flour?</question>
+            <answer correct="y">4:1</answer>
+            <answer>2:4</answer>
+            <answer>1:4</answer>
+            <answer>4:2</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="23">
+            <question>It takes Matt four hours to mow two lawns. How many lawns can he mow in ten hours?</question>
+            <answer>2</answer>
+            <answer correct="y">10</answer>
+            <answer>5</answer>
+            <answer>6</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="24">
+            <question>If x + 6 = 9, then 3x + 1 =?</question>
+            <answer>3</answer>
+            <answer correct="y">9</answer>
+            <answer>10</answer>
+            <answer>8</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="25">
+            <question> Among the following which natural number has no predecessor?</question>
+            <answer>100</answer>
+            <answer correct="y">200</answer>
+            <answer>1</answer>
+            <answer>0</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="26">
+            <question>Among the following which whole number has no predecessor?</question>
+            <answer>-1</answer>
+            <answer>1</answer>
+            <answer>0</answer>
+            <answer correct="y">All the answers</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="27">
+            <question>If Logx (1 / 8) = - 3 / 2, then x is equal to</question>
+            <answer>-4</answer>
+            <answer>1/4</answer>
+            <answer correct="y">4</answer>
+            <answer>-1/4</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="28">
+            <question>20 % of 2 is equal to</question>
+            <answer>20</answer>
+            <answer correct="y">4</answer>
+            <answer>0.4</answer>
+            <answer>-0.4</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="29">
+            <question>f Log 4 (x) = 12, then log 2 (x / 4) is equal to</question>
+            <answer>11</answer>
+            <answer correct="y">48</answer>
+            <answer>22</answer>
+            <answer>-12</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="30">
+            <question>The population of a country increased by an average of 2% per year from 2000 to 2003. If the population of this country was 2 000 000 on December 31, 2003, then the population of this country on January 1, 2000, to the nearest thousand would have been</question>
+            <answer>1 852 000</answer>
+            <answer>1 000 000</answer>
+            <answer>1 846 000</answer>
+            <answer correct="y">1 500 000</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="31">
+            <question>f is a quadratic function whose graph is a parabola opening upward and has a vertex on the x-axis. The graph of the new function g defined by g(x) = 2 - f(x - 5) has a range defined by the interval</question>
+            <answer> [ -5 , + infinity)</answer>
+            <answer correct="y">[ 2 , + infinity)</answer>
+            <answer>( - infinity , 2]</answer>
+            <answer>( - infinity , 0]</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="32">
+            <question>If the graph of y = f(x) is transformed into the graph of 2y - 6 = - 4 f(x - 3), point (a , b) on the graph of y = f(x) becomes point (A , B) on the graph of 2y - 6 = - 4 f(x - 3) where A and B are given by</question>
+            <answer>A = a - 3, B = b</answer>
+            <answer>A = a - 3, B = b</answer>
+            <answer>A = a + 3, B = -2 b</answer>
+            <answer correct="y">A = a + 3, B = -2 b +3</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="33">
+            <question>When a parabola represented by the equation y - 2x 2 = 8 x + 5 is translated 3 units to the left and 2 units up, the new parabola has its vertex at</question>
+            <answer correct="y">(-5 , -5)</answer>
+            <answer>(-5 , -1)</answer>
+            <answer>(-1 , -3)</answer>
+            <answer>(-2 , -3)</answer>
+            <subject>Math</subject>
+            <level>Medium</level>
+        </item>
+        <item id="35">
+            <question>The three solutions of the equation f(x) = 0 are -2, 0, and 3. Therefore, the three solutions of the equation f(x - 2) = 0 are</question>
+            <answer correct="y">- 4, -2, and 1</answer>
+            <answer>-2, 0 and 3</answer>
+            <answer>4, 2, and 5</answer>
+            <answer> 0, 2 and 5</answer>
+            <subject>Math</subject>
+            <level>Hard</level>
+        </item>
+        <item id="36">
+            <question>The three solutions of the equation f(x) = 0 are - 4, 8, and 11. Therefore, the three solutions of the equation f(2 x) = 0 are</question>
+            <answer>- 8, 16 and 22</answer>
+            <answer correct="y">- 4, 8, and 11</answer>
+            <answer>- 2, 4, and 11/2</answer>
+            <answer>19 / 2 and 7 / 2</answer>
+            <subject>Math</subject>
+            <level>Hard</level>
+        </item>
+        <item id="37">
+            <question>A school committee consists of 2 teachers and 4 students. The number of different committees that can be formed from 5 teachers and 10 students is</question>
+            <answer>10</answer>
+            <answer>15</answer>
+            <answer correct="y">2100</answer>
+            <answer>-2100</answer>
+            <subject>Math</subject>
+            <level>Hard</level>
+        </item>
+        <item id="38">
+            <question>Five different books (A, B, C, D and E) are to be arranged on a shelf. Books C and D are to be arranged first and second starting from the right of the shelf. The number of different orders in which books A, B and E may be arranged is</question>
+            <answer>5!</answer>
+            <answer correct="y">2!</answer>
+            <answer>6!</answer>
+            <answer>3!</answer>
+            <subject>Math</subject>
+            <level>Hard</level>
+        </item>
+        <item id="39">
+            <question>The mean of a data set is equal to 10 and its standard deviation is equal to 1. If we add 5 to each data value, then the mean and standard deviation become</question>
+            <answer>mean = 15 , standard deviation = 1</answer>
+            <answer>mean = 15 , standard deviation = 6</answer>
+            <answer>mean = 10 , standard deviation = 6</answer>
+            <answer correct="y">mean = 10 , standard deviation = 1</answer>
+            <subject>Math</subject>
+            <level>Hard</level>
+        </item>
+        <item id="40">
+            <question>The exam scores of all 500 students were recorded and it was determined that these scores were normally distributed. If Jane's score is 0.8 standard deviation above the mean, then how many, to the nearest unit, students scored above Jane?</question>
+            <answer>394</answer>
+            <answer correct="y">250</answer>
+            <answer>400</answer>
+            <answer>106</answer>
+            <subject>Math</subject>
+            <level>Hard</level>
+        </item>
+        <item id="41">
+            <question>he period of | sin (3x) | is</question>
+            <answer>2 ?</answer>
+            <answer>2 ? / 3</answer>
+            <answer correct="y">3 ?</answer>
+            <subject>Math</subject>
+            <level>Hard</level>
+        </item>
+        <item id="42">
+            <question>f f(x) is an odd function, then | f(x) | is</question>
+            <answer> an even function</answer>
+            <answer>an odd function</answer>
+            <answer correct="y">neither odd nor even</answer>
+            <answer>even and odd</answer>
+            <subject>Math</subject>
+            <level>Hard</level>
+        </item>
+        <item id="43">
+            <question>When a metallic ball bearing is placed inside a cylindrical container, of radius 2 cm, the height of the water, inside the container, increases by 0.6 cm. The radius, to the nearest tenth of a centimeter, of the ball bearing is</question>
+            <answer>1.2 cm</answer>
+            <answer correct="y"> 1 cm</answer>
+            <answer> 2 cm</answer>
+            <answer>0.6 cm</answer>
+            <subject>Math</subject>
+            <level>Hard</level>
+        </item>
+        <item id="44">
+            <question>The period of 2 sin x cos x is</question>
+            <answer>4 ? 2</answer>
+            <answer>2 ?</answer>
+            <answer correct="y"> 4 ?</answer>
+            <answer>?</answer>
+            <subject>Math</subject>
+            <level>Hard</level>
+        </item>
+        <item id="45">
+            <question>The probability that an electronic device produced by a company does not function properly is equal to 0.1. If 10 devices are bought, then the probability, to the nearest thousandth, that 7 devices function properly is</question>
+            <answer>0.478</answer>
+            <answer>0.001</answer>
+            <answer>0</answer>
+            <answer correct="y">0.057</answer>
+            <subject>Math</subject>
+            <level>Hard</level>
+        </item>
+        <item id="46">
+            <question>Look at this series: 36, 34, 30, 28, ?, 22 What number should come to fill in the blank space</question>
+            <answer correct="y">25</answer>
+            <answer>26</answer>
+            <answer>24</answer>
+            <answer>None of above</answer>
+            <subject>Math</subject>
+            <level>Hard</level>
+        </item>
+        <item id="47">
+            <question>She works ---- Saturday</question>
+            <answer>at</answer>
+            <answer>on</answer>
+            <answer correct="y">in</answer>
+            <answer>to</answer>
+            <subject>English</subject>
+            <level>Easy</level>
+        </item>
+        <item id="48">
+            <question>I stay at home ---- the morning.&gt;</question>
+            <answer>at</answer>
+            <answer>to</answer>
+            <answer correct="y">in</answer>
+            <answer>on</answer>
+            <subject>English</subject>
+            <level>Easy</level>
+        </item>
+        <item id="49">
+            <question>How do you get to work? ----.</question>
+            <answer>In car</answer>
+            <answer>By car</answer>
+            <answer correct="y">By the car</answer>
+            <answer>On car</answer>
+            <subject>English</subject>
+            <level>Easy</level>
+        </item>
+        <item id="50">
+            <question>Do you like classical music? ----.</question>
+            <answer>Yes, I likes</answer>
+            <answer>Yes, I do</answer>
+            <answer correct="y">Yes, I like</answer>
+            <answer>Yes, I does</answer>
+            <subject>English</subject>
+            <level>Easy</level>
+        </item>
+        <item id="51">
+            <question>Where is Mary? She ---- over there.</question>
+            <answer>is standing</answer>
+            <answer>is stand</answer>
+            <answer correct="y">stand</answer>
+            <answer>standing</answer>
+            <subject>English</subject>
+            <level>Easy</level>
+        </item>
+        <item id="52">
+            <question>I am hungry. ---- something to eat, please.</question>
+            <answer>I like</answer>
+            <answer correct="y">I'd want</answer>
+            <answer>I'd like</answer>
+            <answer>I'm like</answer>
+            <subject>English</subject>
+            <level>Easy</level>
+        </item>
+        <item id="53">
+            <question>He ---- born in 1963 in America.</question>
+            <answer>had</answer>
+            <answer correct="y">is</answer>
+            <answer>was</answer>
+            <answer>did</answer>
+            <subject>English</subject>
+            <level>Easy</level>
+        </item>
+        <item id="54">
+            <question>Switzerland is ---- than Britain.</question>
+            <answer>as small</answer>
+            <answer correct="y">smallest</answer>
+            <answer>more small</answer>
+            <answer>smaller</answer>
+            <subject>English</subject>
+            <level>Easy</level>
+        </item>
+        <item id="55">
+            <question>Motor racing is the ---- sport in the world.</question>
+            <answer>more expensive</answer>
+            <answer>expensivest</answer>
+            <answer correct="y">most expensive</answer>
+            <answer>as expensive</answer>
+            <subject>English</subject>
+            <level>Easy</level>
+        </item>
+        <item id="56">
+            <question>He passed his English exam very ----.</question>
+            <answer>easy</answer>
+            <answer correct="y">easily</answer>
+            <answer>easier</answer>
+            <answer>good</answer>
+            <subject>English</subject>
+            <level>Easy</level>
+        </item>
+        <item id="57">
+            <question>When ---- you go to the USA? Last year.</question>
+            <answer>did</answer>
+            <answer>was</answer>
+            <answer correct="y">went</answer>
+            <answer>have</answer>
+            <subject>English</subject>
+            <level>Easy</level>
+        </item>
+        <item id="58">
+            <question>He ---- very tired, he is falling asleep.</question>
+            <answer>are</answer>
+            <answer>is</answer>
+            <answer>in</answer>
+            <answer correct="y">am</answer>
+            <subject>English</subject>
+            <level>Medium</level>
+        </item>
+        <item id="59">
+            <question>I am going to ---- a shower.</question>
+            <answer>make</answer>
+            <answer correct="y">wash</answer>
+            <answer>take</answer>
+            <answer>do</answer>
+            <subject>English</subject>
+            <level>Medium</level>
+        </item>
+        <item id="60">
+            <question>I can't believe you went to school ----.</question>
+            <answer>with your feet</answer>
+            <answer correct="y">on foot</answer>
+            <answer>by feet</answer>
+            <answer>with walking</answer>
+            <subject>English</subject>
+            <level>Medium</level>
+        </item>
+        <item id="61">
+            <question>He is not a doctor, ----?</question>
+            <answer>is him</answer>
+            <answer>is he</answer>
+            <answer correct="y">does he</answer>
+            <answer>he is</answer>
+            <subject>English</subject>
+            <level>Medium</level>
+        </item>
+        <item id="62">
+            <question>What ---- those people doing?</question>
+            <answer>are</answer>
+            <answer>is</answer>
+            <answer correct="y">all</answer>
+            <answer>some</answer>
+            <subject>English</subject>
+            <level>Medium</level>
+        </item>
+        <item id="63">
+            <question>I am very ----, I can eat a cow.</question>
+            <answer>thirsty</answer>
+            <answer>tired</answer>
+            <answer>hungry</answer>
+            <answer correct="y">cold</answer>
+            <subject>English</subject>
+            <level>Medium</level>
+        </item>
+        <item id="64">
+            <question>United States is a beautiful ----.</question>
+            <answer>city</answer>
+            <answer>town</answer>
+            <answer correct="y">country</answer>
+            <answer>continent</answer>
+            <subject>English</subject>
+            <level>Medium</level>
+        </item>
+        <item id="65">
+            <question>I think Josh is a little bit ---- than you.</question>
+            <answer>more tall</answer>
+            <answer>tallest</answer>
+            <answer>most taller</answer>
+            <answer correct="y">taller</answer>
+            <subject>English</subject>
+            <level>Medium</level>
+        </item>
+        <item id="66">
+            <question>He ---- got a nice house.</question>
+            <answer>have</answer>
+            <answer>is</answer>
+            <answer correct="y">has</answer>
+            <answer>are</answer>
+            <subject>English</subject>
+            <level>Medium</level>
+        </item>
+        <item id="67">
+            <question>The ---- is very bad today, it is raining cats and dogs.</question>
+            <answer>whether</answer>
+            <answer correct="y">weather</answer>
+            <answer>air</answer>
+            <answer>temp</answer>
+            <subject>English</subject>
+            <level>Medium</level>
+        </item>
+        <item id="68">
+            <question>The county cleared this path and paved it with packed gravel, so they would have a peaceful place to hike and bike.
+
+                Which of the following alternatives to the underlined portion would NOT be acceptable?</question>
+            <answer>path, paving</answer>
+            <answer>path paved</answer>
+            <answer correct="y">path and then paved</answer>
+            <answer>path before paving</answer>
+            <subject>English</subject>
+            <level>Hard</level>
+        </item>
+        <item id="69">
+            <question>Did you remember _________ the parcels?</question>
+            <answer>post</answer>
+            <answer>posting</answer>
+            <answer correct="y">to post</answer>
+            <answer>posted</answer>
+            <subject>English</subject>
+            <level>Hard</level>
+        </item>
+        <item id="70">
+            <question>He ________ gone to work yesterday. John was there all day and nobody saw him.</question>
+            <answer>mustn't have</answer>
+            <answer correct="y">can't have</answer>
+            <answer> wasn't have</answer>
+            <answer>have</answer>
+            <subject>English</subject>
+            <level>Hard</level>
+        </item>
+        <item id="71">
+            <question>Having ________ about your suggestion for a few days, I've decided to support the project.</question>
+            <answer>thought</answer>
+            <answer correct="y">thinking</answer>
+            <answer>think</answer>
+            <answer>have think</answer>
+            <subject>English</subject>
+            <level>Hard</level>
+        </item>
+        <item id="72">
+            <question>Nothing happened at the meeting, ________ it?</question>
+            <answer>didn't</answer>
+            <answer correct="y">do</answer>
+            <answer>did</answer>
+            <answer>does</answer>
+            <subject>English</subject>
+            <level>Hard</level>
+        </item>
+        <item id="73">
+            <question>My brother __________ in London for four years.</question>
+            <answer>Studies</answer>
+            <answer correct="y">Has studied</answer>
+            <answer>Studied</answer>
+            <answer>Studying</answer>
+            <subject>English</subject>
+            <level>Hard</level>
+        </item>
+        <item id="74">
+            <question>This club is for members only.  You can't go in _______ you are a member.</question>
+            <answer>In case</answer>
+            <answer>If</answer>
+            <answer correct="y">Although</answer>
+            <answer>Unless</answer>
+            <subject>English</subject>
+            <level>Hard</level>
+        </item>
+        <item id="75">
+            <question>This brand produces some of .........................digital phones in the world.</question>
+            <answer correct="y">The most best</answer>
+            <answer>bested</answer>
+            <answer>The best</answer>
+            <answer>best</answer>
+            <subject>English</subject>
+            <level>Hard</level>
+        </item>
+        <item id="76">
+            <question>I finished my essay yesterday but ...........it into the lecturer yet.</question>
+            <answer>I didn't give</answer>
+            <answer correct="y">I haven't given</answer>
+            <answer>I did</answer>
+            <answer>did</answer>
+            <subject>English</subject>
+            <level>Hard</level>
+        </item>
+        <item id="77">
+            <question></question>
+            <answer>Travelling</answer>
+            <answer correct="y">To Travelling</answer>
+            <answer>To Travel</answer>
+            <answer>Travel</answer>
+            <subject>English</subject>
+            <level>Hard</level>
+        </item>
+        <item id="78">
+            <question>Which natural force helps us slows down the car when pulling the brake?</question>
+            <answer>Resistance force</answer>
+            <answer>Friction force</answer>
+            <answer>Tension force</answer>
+            <answer correct="y">Force</answer>
+            <subject>Physic</subject>
+            <level>Easy</level>
+        </item>
+        <item id="79">
+            <question>Which shape are the typical orbits of comets?</question>
+            <answer correct="y">Triangle</answer>
+            <answer>Rectangular</answer>
+            <answer>Elliptical</answer>
+            <answer>All above</answer>
+            <subject>Physic</subject>
+            <level>Easy</level>
+        </item>
+        <item id="80">
+            <question>According to Isaac Newton, he was inspired to formulate the theory of gravitation when watching the fall of which fruit from a tree?</question>
+            <answer>Apples</answer>
+            <answer>Grapes</answer>
+            <answer correct="y">Pearls</answer>
+            <answer>No anwser</answer>
+            <subject>Physic</subject>
+            <level>Easy</level>
+        </item>
+        <item id="81">
+            <question>Which of the following energy resources generates most of the electricity used all over the world?</question>
+            <answer>No anwser</answer>
+            <answer>Renewable energy resources</answer>
+            <answer correct="y">Nuclear power</answer>
+            <answer>Fossil fuels</answer>
+            <subject>Physic</subject>
+            <level>Easy</level>
+        </item>
+        <item id="82">
+            <question>Which of the following speeds is faster?</question>
+            <answer correct="y">The speed of sound</answer>
+            <answer>The speed of electricity</answer>
+            <answer>The speed of light</answer>
+            <answer>No anwser</answer>
+            <subject>Physic</subject>
+            <level>Easy</level>
+        </item>
+        <item id="83">
+            <question>Which of the following can be measured by the unit horsepower or HP?</question>
+            <answer>Electrical resistance</answer>
+            <answer>The output of motors</answer>
+            <answer correct="y">Air temperature</answer>
+            <answer>No anwser</answer>
+            <subject>Physic</subject>
+            <level>Easy</level>
+        </item>
+        <item id="84">
+            <question>There are 4 states of matter in physics: gas, liquid, solid, and ?</question>
+            <answer>Electron</answer>
+            <answer correct="y">Crystal</answer>
+            <answer>Plasma</answer>
+            <answer>No anwser</answer>
+            <subject>Physic</subject>
+            <level>Easy</level>
+        </item>
+        <item id="85">
+            <question>Which kind of lens is used to make a magnifying glass?</question>
+            <answer>Convex lens</answer>
+            <answer correct="y">Concave lens</answer>
+            <answer>Plano concave lens</answer>
+            <answer>No anwser</answer>
+            <subject>Physic</subject>
+            <level>Easy</level>
+        </item>
+        <item id="86">
+            <question>How many colours are there in sunlight?</question>
+            <answer>1</answer>
+            <answer>3</answer>
+            <answer correct="y">9</answer>
+            <answer>7</answer>
+            <subject>Physic</subject>
+            <level>Easy</level>
+        </item>
+        <item id="87">
+            <question>How can we calculate the velocity of a vehicle?</question>
+            <answer correct="y">Multiply the travelled distance with the taken time</answer>
+            <answer>No anwser</answer>
+            <answer>Divide the travelled distance by the taken time</answer>
+            <answer>Divide the taken time by the travelled distance</answer>
+            <subject>Physic</subject>
+            <level>Easy</level>
+        </item>
+        <item id="88">
+            <question>Which of the following books is written by the English physicist Stephen Hawking?</question>
+            <answer>The Order of Time</answer>
+            <answer>A Brief History of Time</answer>
+            <answer correct="y">The Black Hole War</answer>
+            <answer>No answer</answer>
+            <subject>Physic</subject>
+            <level>Medium</level>
+        </item>
+        <item id="89">
+            <question>The German theoretical physicist Max Planck is often known as the father of which theory in physics?</question>
+            <answer>Theory of relativity</answer>
+            <answer>Density functional theory</answer>
+            <answer correct="y">Quantum theory</answer>
+            <answer>No answer</answer>
+            <subject>Physic</subject>
+            <level>Medium</level>
+        </item>
+        <item id="90">
+            <question>In which of the following environments can sound travel fastest?</question>
+            <answer>Solid</answer>
+            <answer>Air</answer>
+            <answer correct="y">Liquid</answer>
+            <answer>No answer</answer>
+            <subject>Physic</subject>
+            <level>Medium</level>
+        </item>
+        <item id="91">
+            <question>The letter ?m? typically represents which concept in physics?</question>
+            <answer>Motion</answer>
+            <answer>Miles</answer>
+            <answer correct="y">No answer</answer>
+            <answer>Mass</answer>
+            <subject>Physic</subject>
+            <level>Medium</level>
+        </item>
+        <item id="92">
+            <question>Which type of energy does an object have when it is in motion?</question>
+            <answer>Kinetic energy</answer>
+            <answer>Nuclear energy</answer>
+            <answer correct="y">Thermal energy</answer>
+            <answer>No answer</answer>
+            <subject>Physic</subject>
+            <level>Medium</level>
+        </item>
+        <item id="93">
+            <question>Which of the following physical features is a function of gravity?</question>
+            <answer>Your height</answer>
+            <answer correct="y">Your weight</answer>
+            <answer>Your belly size</answer>
+            <answer>No answer</answer>
+            <subject>Physic</subject>
+            <level>Medium</level>
+        </item>
+        <item id="94">
+            <question>An object vibrates harmonically according to the equation x = 5cos?t (cm,s). What is the maximum speed of the object?</question>
+            <answer> ?5? cm/s</answer>
+            <answer>5 cm/s.</answer>
+            <answer correct="y">5? cm/s.</answer>
+            <answer>5/? cm/s</answer>
+            <subject>Physic</subject>
+            <level>Medium</level>
+        </item>
+        <item id="95">
+            <question>Select a particle that oscillates harmonically on a line segment MN 6 cm long with a frequency of 2 Hz. Choose the time origin when the point has a distance of 3?3/2 cm and moves in the opposite direction to the positive direction you have chosen. The equation of motion of the particle is:</question>
+            <answer>x = 3cos(4?t + ?/6) cm</answer>
+            <answer correct="y">x = 3sin(4?t + ?/3) cm</answer>
+            <answer>x = 3sin(4?t + ?/6) cm</answer>
+            <answer>x = 3cos(4?t + 5?/6) cm</answer>
+            <subject>Physic</subject>
+            <level>Medium</level>
+        </item>
+        <item id="96">
+            <question>The object vibrates harmonic according to the equation x = Acos?t (cm). After oscillating for 1/6 period, the object has a displacement of ?3/2 cm. The amplitude of the object's oscillation is:</question>
+            <answer>2?2 cm</answer>
+            <answer>2 cm</answer>
+            <answer>4?2 cm</answer>
+            <answer correct="y">?3 cm</answer>
+            <subject>Physic</subject>
+            <level>Medium</level>
+        </item>
+        <item id="97">
+            <question>Harmonic vibration with acceleration equation a = 40?2cos(2?t + ?/2) cm/s2. The equation of motion of the body is</question>
+            <answer>x = 6cos(2?t - ?/4) cm</answer>
+            <answer>x = 10cos(2?t) cm</answer>
+            <answer correct="y">x = 10cos(2?t - ?/2) cm</answer>
+            <answer>x = 20cos(2?t - ?/2) cm</answer>
+            <subject>Physic</subject>
+            <level>Medium</level>
+        </item>
+        <item id="98">
+            <question>Initially, the mass ratio of radioactive substance A to B is 3: 1. If their half-lives are T and 4T/3 respectively, then after time is equal to 4T the mass ratio of A to B to be:</question>
+            <answer>1</answer>
+            <answer>3/2</answer>
+            <answer correct="y">2</answer>
+            <answer>2/3</answer>
+            <subject>Physic</subject>
+            <level>Hard</level>
+        </item>
+        <item id="99">
+            <question>here are two samples of radioactive substances A and B belonging to the same substance with a half-life T = 138.2 days and with the same initial mass. At the time of observation, the ratio of the number of nuclei of two samples NB/NA = 2.72. The age of sample A more than sample B is:</question>
+            <answer>199,8 days</answer>
+            <answer correct="y">199,8 days</answer>
+            <answer>1998,5 days</answer>
+            <answer>189,8 days</answer>
+            <subject>Physic</subject>
+            <level>Hard</level>
+        </item>
+        <item id="100">
+            <question>The radioactive isotope Na24 emits ?-radioactivity with a half-life T and a daughter nucleus of Mg24. At the initial time the ratio of the masses of Mg24 and Na24 is 1/4. After 2T time, the ratio is</question>
+            <answer>4</answer>
+            <answer>1</answer>
+            <answer correct="y">3</answer>
+            <answer>2</answer>
+            <subject>Physic</subject>
+            <level>Hard</level>
+        </item>
+        <item id="101">
+            <question>To measure the half-life of a radioactive ?-, an electron counter is used. From time t = 0 to t1 = 2 hours the counter writes dc n1 decays/second. At the time t2 = 6 hours, the machine counts N2 decays/second. With n2 = 2,3n1. Find the half-life.</question>
+            <answer>3,31 hours</answer>
+            <answer>14,92hours</answer>
+            <answer correct="y">3,95hours</answer>
+            <answer>4,71hours</answer>
+            <subject>Physic</subject>
+            <level>Hard</level>
+        </item>
+        <item id="102">
+            <question>A patient is treated with radioisotopes, using ?-rays to kill diseased cells. The first irradiation time is ?t = 30 minutes, every 1 month, the patient must go to the hospital for medical examination and continue irradiation. Knowing that the radioactive isotope has a half-life T = 4 months (see ?t &gt;&gt; T) and still using the radioactive source for the first time.
+
+                - How long should the third irradiation take for the patient to be irradiated with the same amount of ?-rays as the first time?</question>
+            <answer>40 minute</answer>
+            <answer correct="y">20minute</answer>
+            <answer>42,42 minute</answer>
+            <answer>28,2minute</answer>
+            <subject>Physic</subject>
+            <level>Hard</level>
+        </item>
+        <item id="103">
+            <question>A mixture of two radioactive substances X and Y initially have the same number of radioactive particles. Know the radioactive periods of two substances are T1 and T2 respectively with T2 = 2T1. After how long will the mixture be left with half of the original number of particles?</question>
+            <answer>1,5T2</answer>
+            <answer correct="y">0,69T2</answer>
+            <answer>2T2</answer>
+            <answer>3T2</answer>
+            <subject>Physic</subject>
+            <level>Hard</level>
+        </item>
+        <item id="104">
+            <question>Most of the energy released in fission is:</question>
+            <answer>the kinetic energy of the emitted neutrons</answer>
+            <answer>the energy released by the radiation of the fragments</answer>
+            <answer correct="y">kinetic energy of the pieces</answer>
+            <answer>photon energy of ?-rays</answer>
+            <subject>Physic</subject>
+            <level>Hard</level>
+        </item>
+        <item id="105">
+            <question>The similarities between radioactivity and fission are:</question>
+            <answer>Both are reactions that release energy</answer>
+            <answer correct="y">May vary due to external factors.</answer>
+            <answer>The generated nuclei can be known in advance.</answer>
+            <answer>All three points mentioned in A, B,</answer>
+            <subject>Physic</subject>
+            <level>Hard</level>
+        </item>
+        <item id="106">
+            <question>Choose the wrong sentence. What are the necessary conditions for a nuclear chain reaction?</question>
+            <answer correct="y">There must be a source to generate neutrons</answer>
+            <answer>After each fission, the number of released neutrons must be greater than or equal to 1</answer>
+            <answer>he amount of fuel (uranium, plutonium) must be large enough.</answer>
+            <answer>The temperature must be raised.</answer>
+            <subject>Physic</subject>
+            <level>Hard</level>
+        </item>
+        <item id="107">
+            <question>The cadmium rods in a nuclear reactor have the following effects:</question>
+            <answer>As a catalyst for the reaction to occur</answer>
+            <answer correct="y">Make fission faster</answer>
+            <answer>Absorption of neutrons produced by fission</answer>
+            <answer>Creating neutrons to sustain fission reactions</answer>
+            <subject>Physic</subject>
+            <level>Hard</level>
+        </item>
+    </items>
+</quiz>

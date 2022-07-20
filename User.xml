@@ -1,0 +1,66 @@
+<?xml version="1.0"?><users>
+    <user id="1">
+        <type>student</type>
+        <username>huyhoang</username>
+        <password>123</password>
+        <email>hoang@gmail.com</email>
+        <age>17</age>
+        <class>12</class>
+    </user>
+    <user id="2">
+        <type>student</type>
+        <username>thanhdat</username>
+        <password>123</password>
+        <email>dat@gmail.com</email>
+        <age>11</age>
+        <class>6</class>
+    </user>
+    <user id="3">
+        <type>student</type>
+        <username>phunghoang</username>
+        <password>123</password>
+        <email>phunghoang@gmail.com</email>
+        <age>15</age>
+        <class>10</class>
+    </user>
+    <user id="1">
+        <type>teacher</type>
+        <username>Adam</username>
+        <password>123</password>
+        <email>adam@gmail.com</email>
+        <age>30</age>
+        <class></class>
+    </user>
+    <user id="2">
+        <type>teacher</type>
+        <username>vantoan</username>
+        <password>123</password>
+        <email>toan@gmail.com</email>
+        <age>45</age>
+        <class>7b</class>
+    </user>
+    <user id="3">
+        <type>teacher</type>
+        <username>thily</username>
+        <password>123</password>
+        <email>ly@gmail.com</email>
+        <age>30</age>
+        <class>7a</class>
+    </user>
+    <user id="4">
+        <type>student</type>
+        <username>ech</username>
+        <password>123456</password>
+        <email>yeudech0i@gmail.com</email>
+        <age>18</age>
+        <class>7a</class>
+    </user>
+    <user id="5">
+        <type>student</type>
+        <username>dat3</username>
+        <password>12345678</password>
+        <email>yeudech0i2@gmail.com</email>
+        <age>17</age>
+        <class>7b</class>
+    </user>
+</users>

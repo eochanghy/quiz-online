@@ -14,6 +14,7 @@ import dao.AccountDAO;
 import dao.impl.AccountDAOImpl;
 import entity.Account;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -73,12 +74,15 @@ public class RegisterController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+            System.out.println("aaaaaaaa");
             String url = "view/html/Register.jsp";
             AccountDAO accountDAO = new AccountDAOImpl();
             String user = request.getParameter("user").trim().toLowerCase();
             String pass = request.getParameter("password".trim()).toLowerCase();
             String email = request.getParameter("email").trim().toLowerCase();
             String type = null;
+            String age = request.getParameter("age".trim()).toLowerCase();
+            String className = request.getParameter("class").trim().toLowerCase();
             int typeIndex = Integer.parseInt(request.getParameter("type"));
 
             if (typeIndex == 1) {
@@ -87,15 +91,17 @@ public class RegisterController extends HttpServlet {
                 type = "student";
             }
             Account accountRegis = new Account();
+            accountRegis.setId(generateNewId());
             accountRegis.setName(user);
             accountRegis.setPassword(pass);
             accountRegis.setEmail(email);
             accountRegis.setType(type);
+            accountRegis.setAge(Integer.parseInt(age));
+            accountRegis.setClassName(className);
             request.setAttribute("accountRegis", accountRegis);
             if (checkInput(request, user, pass, email)) {
-                Account account = new Account(user, pass, type, email);
-                accountDAO.createAccount(account);
-                request.getSession().setAttribute("account", account);
+                accountDAO.createAccount(accountRegis);
+                request.getSession().setAttribute("account", accountRegis);
                 request.setAttribute("success", "New account registration successful!");
                 url = "Home";
             }
@@ -107,6 +113,18 @@ public class RegisterController extends HttpServlet {
         }
     }
 
+    
+    private int generateNewId() {
+        try {
+            AccountDAO accDao = new AccountDAOImpl();
+            List<Account> accounts = accDao.getAllAccount();
+            int id = accounts.get(accounts.size()-1).getId() + 1;
+            return id;
+        } catch (Exception ex) {
+            Logger.getLogger(RegisterController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
     /**
      * Check length of input and check that input is empty or not. If the
      * conditions are satisfied, return true else return false.

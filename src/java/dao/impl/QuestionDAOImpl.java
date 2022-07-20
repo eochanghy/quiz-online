@@ -12,28 +12,109 @@ package dao.impl;
 
 import context.DBContext;
 import dao.QuestionDAO;
+import entity.Account;
 import entity.Question;
+import entity.QuestionSingle;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.namespace.QName;
+import javax.xml.stream.XMLEventFactory;
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLEventWriter;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
+import javax.xml.stream.events.Attribute;
+import javax.xml.stream.events.EndDocument;
+import javax.xml.stream.events.EndElement;
+import javax.xml.stream.events.StartDocument;
+import javax.xml.stream.events.StartElement;
+import javax.xml.stream.events.XMLEvent;
 
 /**
- * Contains method about question table to implement. 
- * Method insertQuestion: Inserts question to question table, answer of question to answer table. 
- * Method countTotalQuestionById: Counts total question by id in question table. 
- * Method getListPagingQuestion: Gets list question with paging 
- * Method countAllQuestion: Counts total question in question table. 
- * Method getRandomQuestion: Gets list random question in question table. 
- * Method deleteQuestion: Deletes question by id in question table.
+ * Contains method about question table to implement. Method insertQuestion:
+ * Inserts question to question table, answer of question to answer table.
+ * Method countTotalQuestionById: Counts total question by id in question table.
+ * Method getListPagingQuestion: Gets list question with paging Method
+ * countAllQuestion: Counts total question in question table. Method
+ * getRandomQuestion: Gets list random question in question table. Method
+ * deleteQuestion: Deletes question by id in question table.
  * <p>
  * Bugs: None
  *
  * @author Nguyen Thanh Dat
  */
 public class QuestionDAOImpl extends DBContext implements QuestionDAO {
+
+    @Override
+    public List<QuestionSingle> getAllQuestion() throws FileNotFoundException, XMLStreamException {
+        List<QuestionSingle> questions = new ArrayList<>();
+        XMLInputFactory factory = XMLInputFactory.newFactory();
+        XMLStreamReader reader = factory.createXMLStreamReader(new FileInputStream("D:/FPT_University/SUM2022/PRX301/Project/Lab01_Quiz/Quiz.xml"));
+        QuestionSingle question = new QuestionSingle();
+        while (reader.hasNext()) {
+            int type = reader.next();
+            if (type == XMLStreamReader.START_ELEMENT) {
+                String name = reader.getName().toString();
+                if (name.equals("item")) {
+                    question = new QuestionSingle();
+                    String id = reader.getAttributeValue("", "id");
+                    question.setId(id);
+                }
+                if ("question".equals(name)) {
+                    question.setQuestion(reader.getElementText());
+                }
+                if ("answer".equals(name)) {
+                    String correct = reader.getAttributeValue("", "correct");
+                    String answerContent = reader.getElementText();
+                    if (correct != null && "y".equals(correct)) {
+                        question.setResult(answerContent);
+                    }
+                    if (question.getOption1() == null) {
+                        question.setOption1(answerContent);
+//                        reader.next();
+                    } else {
+                        if (question.getOption2() == null) {
+                            question.setOption2(answerContent);
+//                            reader.next();
+                        } else {
+                            if (question.getOption3() == null) {
+                                question.setOption3(answerContent);
+//                                reader.next();
+                            } else {
+                                question.setOption4(answerContent);
+//                                reader.next();
+                            }
+                        }
+                    }
+                }
+                if ("subject".equals(name)) {
+                    question.setSubject(reader.getElementText());
+                }
+                if ("level".equals(name)) {
+                    question.setLevel(reader.getElementText());
+                }
+            }
+            if (type == XMLStreamReader.END_ELEMENT) {
+                String name = reader.getName().toString();
+                if ("item".equals(name)) {
+                    questions.add(question);
+                }
+            }
+        }
+        return questions;
+    }
 
     /**
      * Inserts question, answer of question to database.
@@ -45,41 +126,12 @@ public class QuestionDAOImpl extends DBContext implements QuestionDAO {
      * @throws java.lang.Exception
      */
     @Override
-    public void insertQuestion(Question question, ArrayList<String> listAnswer) throws Exception {
-        Connection con = null;
-        PreparedStatement ps = null;
-        try {
-            String sqlQuestion = "Insert into dbo.Question\n"
-                    + "values (?, ?, ?, ?, ?, ?, ?);";
-            String sqlAnswer = "";
-            for (String as : listAnswer) {
-                sqlAnswer += "\nInsert into dbo.Answer\n"
-                        + "values (?, (SELECT IDENT_CURRENT('Question')));";
-            }
-            String sql = sqlQuestion + sqlAnswer;
-            con = getConnection();
-            ps = con.prepareStatement(sql);
-            ps.setString(1, question.getQuestion());
-            ps.setString(2, question.getOption1());
-            ps.setString(3, question.getOption2());
-            ps.setString(4, question.getOption3());
-            ps.setString(5, question.getOption4());
-            ps.setString(6, question.getDate());
-            ps.setInt(7, question.getAccountId());
-            int count = 7;
-            for (String as : listAnswer) {
-                count++;
-                ps.setString(count, as);
-            }
-            ps.executeUpdate();
+    public void insertQuestion(QuestionSingle question) throws Exception {
+        List<QuestionSingle> questions = getAllQuestion();
+        questions.add(question);
 
-        } catch (Exception ex) {
-            Logger.getLogger(QuestionDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            throw ex;
-        } finally {
-            closePrepareStatement(ps);
-            closeConnection(con);
-        }
+        File file = new File("D:/FPT_University/SUM2022/PRX301/Project/Lab01_Quiz/Quiz.xml");
+        writeQuestionsXML(questions, file);
     }
 
     /**
@@ -91,27 +143,10 @@ public class QuestionDAOImpl extends DBContext implements QuestionDAO {
      * @throws java.lang.Exception
      */
     @Override
-    public int countTotalQuestionById(int id) throws Exception {
-        Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-            String sql = "SELECT COUNT(*) as total FROM Question as q where q.AccountID = ?";
-            con = getConnection();
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                return rs.getInt("total");
-            }
-
-        } catch (Exception ex) {
-            Logger.getLogger(QuestionDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            throw ex;
-        } finally {
-            closeResultSet(rs);
-            closePrepareStatement(ps);
-            closeConnection(con);
+    public int countTotalQuestion() throws Exception {
+        List<QuestionSingle> questions = getAllQuestion();
+        if (questions.size() > 0) {
+            return questions.size();
         }
         return 0;
     }
@@ -131,46 +166,16 @@ public class QuestionDAOImpl extends DBContext implements QuestionDAO {
      * @throws java.lang.Exception
      */
     @Override
-    public ArrayList<Question> getListPagingQuestion(int pageIndex, int pageSize, int accountId) throws Exception {
-        Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList<Question> questions = new ArrayList<>();
-        try {
-            String sql = "SELECT a.ID,a.Question, a.Option1,a.Option2,a.Option3,a.Option4,a.Date FROM\n"
-                    + " (SELECT ROW_NUMBER() OVER (ORDER BY id ASC) as rid,q.*\n"
-                    + " FROM Question as q where q.AccountID = ? ) a\n"
-                    + " WHERE rid >= (? - 1)*? + 1\n"
-                    + " AND rid <= ? * ?";
-            con = getConnection();
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, accountId);
-            ps.setInt(2, pageIndex);
-            ps.setInt(3, pageSize);
-            ps.setInt(4, pageSize);
-            ps.setInt(5, pageIndex);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                Question q = new Question();
-                q.setId(rs.getInt("ID"));
-                q.setQuestion(rs.getString("Question"));
-                q.setOption1(rs.getString("Option1"));
-                q.setOption2(rs.getString("Option2"));
-                q.setOption3(rs.getString("Option3"));
-                q.setOption4(rs.getString("Option4"));
-                q.setDate(rs.getString("Date"));
-                questions.add(q);
-            }
+    public List<QuestionSingle> getListPagingQuestion(int pageIndex, int pageSize) throws Exception {
 
-        } catch (Exception ex) {
-            Logger.getLogger(QuestionDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            throw ex;
-        } finally {
-            closeResultSet(rs);
-            closePrepareStatement(ps);
-            closeConnection(con);
+        List<QuestionSingle> questions = getAllQuestion();
+        List<QuestionSingle> returnQuestions = new ArrayList<>();
+        int lastIndex = pageIndex * pageSize > questions.size() ? questions.size() : pageIndex * pageSize;
+
+        for (int i = (pageIndex - 1) * pageSize; i < lastIndex; i++) {
+            returnQuestions.add(questions.get(i));
         }
-        return questions;
+        return returnQuestions;
     }
 
     /**
@@ -180,26 +185,17 @@ public class QuestionDAOImpl extends DBContext implements QuestionDAO {
      * @throws java.lang.Exception
      */
     @Override
-    public int countAllQuestion() throws Exception {
-        Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-            String sql = "SELECT COUNT(*) as total FROM Question as q";
-            con = getConnection();
-            ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                return rs.getInt("total");
-            }
+    public int countAllQuestionCondition(String subject, String level) throws Exception {
 
-        } catch (Exception ex) {
-            Logger.getLogger(QuestionDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            throw ex;
-        } finally {
-            closeResultSet(rs);
-            closePrepareStatement(ps);
-            closeConnection(con);
+        List<QuestionSingle> questions = getAllQuestion();
+        if (questions.size() > 0) {
+            List<QuestionSingle> returnQuestions = new ArrayList<>();
+            for (QuestionSingle q : questions) {
+                if (q.getSubject().equalsIgnoreCase(subject) && q.getLevel().equalsIgnoreCase(level)) {
+                    returnQuestions.add(q);
+                }
+            }
+            return returnQuestions.size();
         }
         return 0;
     }
@@ -216,59 +212,23 @@ public class QuestionDAOImpl extends DBContext implements QuestionDAO {
      * @throws java.lang.Exception
      */
     @Override
-    public ArrayList<Question> getRandomQuestion(int numQuestion) throws Exception {
-        Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList<Question> listQuestion = new ArrayList<>();
-        try {
-            String sql = "select qu.*,a.AnswerContent\n"
-                    + "from\n"
-                    + "(SELECT top(?) q.*\n"
-                    + "from Question as q\n"
-                    + "order by NEWID()) as qu, Answer as a\n"
-                    + "where qu.ID = a.QuestionID";
-            con = getConnection();
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, numQuestion);
-            rs = ps.executeQuery();
-            Question question = new Question();
-            question.setId(0);
-            ArrayList<Integer> results = new ArrayList<>();
-            while (rs.next()) {
-                if (question.getId() != rs.getInt(("ID"))) {
-                    if (question.getId() != 0) {
-                        listQuestion.add(question);
-                    }
-                    question = new Question();
-                    question.setId(rs.getInt("ID"));
-                    question.setQuestion(rs.getString("Question"));
-                    question.setOption1(rs.getString("Option1"));
-                    question.setOption2(rs.getString("Option2"));
-                    question.setOption3(rs.getString("Option3"));
-                    question.setOption4(rs.getString("Option4"));
-                    results = new ArrayList<>();
-                    int resultElement = rs.getInt("AnswerContent");
-                    results.add(resultElement);
-                    question.setResult(results);
-                    question.setDate(rs.getString("Date"));
-                } else {
-                    int resultElement = rs.getInt("AnswerContent");
-                    results.add(resultElement);
-                    question.setResult(results);
-                }
+    public List<QuestionSingle> getRandomQuestion(int numQuestion, String subject, String level) throws Exception {
+        List<QuestionSingle> listQuestion = getAllQuestion();
+        List<QuestionSingle> listQuestionCondition = new ArrayList<>();
+        for (QuestionSingle q : listQuestion) {
+            if (q.getSubject().equalsIgnoreCase(subject) && q.getLevel().equalsIgnoreCase(level)) {
+                listQuestionCondition.add(q);
             }
-            listQuestion.add(question);
-
-        } catch (Exception ex) {
-            Logger.getLogger(QuestionDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            throw ex;
-        } finally {
-            closeResultSet(rs);
-            closePrepareStatement(ps);
-            closeConnection(con);
         }
-        return listQuestion;
+        List<QuestionSingle> returnQuestion = new ArrayList<>();
+        for (int i = 0; i < numQuestion; i++) {
+            Random random = new Random();
+            int index = random.nextInt(listQuestionCondition.size());
+            returnQuestion.add(listQuestionCondition.get(index));
+            listQuestionCondition.remove(index);
+        }
+
+        return returnQuestion;
     }
 
     /**
@@ -278,26 +238,18 @@ public class QuestionDAOImpl extends DBContext implements QuestionDAO {
      * @throws java.lang.Exception
      */
     @Override
-    public void deleteQuestion(int id) throws Exception {
-        Connection con = null;
-        PreparedStatement ps = null;
-        try {
-            String sql = "DELETE FROM [Question]\n"
-                    + "where ID = ?;\n"
-                    + "DELETE FROM [Answer]\n"
-                    + "WHERE QuestionID = ?";
-
-            con = getConnection();
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            ps.setInt(2, id);
-            ps.executeUpdate();
-        } catch (Exception ex) {
-            Logger.getLogger(QuestionDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
-            throw ex;
-        } finally {
-            closePrepareStatement(ps);
-            closeConnection(con);
+    public void deleteQuestion(String id) throws Exception {
+        List<QuestionSingle> questions = getAllQuestion();
+        int deleteIndex = -1;
+        for (int i = 0; i < questions.size(); i++) {
+            if (questions.get(i).getId().equalsIgnoreCase(id)) {
+                deleteIndex = i;
+            }
+        }
+        if (deleteIndex != -1) {
+            questions.remove(deleteIndex);
+            File file = new File("D:/FPT_University/SUM2022/PRX301/Project/Lab01_Quiz/Quiz.xml");
+            writeQuestionsXML(questions, file);
         }
     }
 
@@ -332,6 +284,107 @@ public class QuestionDAOImpl extends DBContext implements QuestionDAO {
             closeConnection(con);
         }
         return 0;
+    }
+
+    private void writeQuestionsXML(List<QuestionSingle> questions, File file) {
+        try {
+
+            XMLOutputFactory factory = XMLOutputFactory.newFactory();
+            XMLEventWriter writer = factory.createXMLEventWriter(new FileOutputStream(file));
+            XMLEventFactory ef = XMLEventFactory.newFactory();
+
+            StartDocument sd = ef.createStartDocument();
+            EndDocument ed = ef.createEndDocument();
+
+            StartElement sQuiz = ef.createStartElement("", "", "quiz");
+            EndElement eQuiz = ef.createEndElement("", "", "quiz");
+
+            StartElement sItems = ef.createStartElement("", "", "items");
+            EndElement eItems = ef.createEndElement("", "", "items");
+
+            StartElement sItem = ef.createStartElement("", "", "item");
+            EndElement eItem = ef.createEndElement("", "", "item");
+
+            StartElement sQuestion = ef.createStartElement("", "", "question");
+            EndElement eQuestion = ef.createEndElement("", "", "question");
+
+            StartElement sAnswer = ef.createStartElement("", "", "answer");
+            EndElement eAnswer = ef.createEndElement("", "", "answer");
+
+            StartElement sSubject = ef.createStartElement("", "", "subject");
+            EndElement eSubject = ef.createEndElement("", "", "subject");
+
+            StartElement sLevel = ef.createStartElement("", "", "level");
+            EndElement eLevel = ef.createEndElement("", "", "level");
+
+            //add 
+            writer.add(sd);
+            writer.add(sQuiz);
+            writer.add(sItems);
+            for (QuestionSingle q : questions) {
+                writer.add(sItem);
+                Attribute id = ef.createAttribute("id", String.valueOf(q.getId()));
+                writer.add(id);
+
+                writer.add(sQuestion);
+                writer.add(ef.createCharacters(q.getQuestion()));
+                writer.add(eQuestion);
+
+                writer.add(sAnswer);
+                if (q.getResult().equalsIgnoreCase(q.getOption1())) {
+                    Attribute correct = ef.createAttribute("correct", "y");
+                    writer.add(correct);
+                }
+                writer.add(ef.createCharacters(q.getOption1()));
+                writer.add(eAnswer);
+
+                writer.add(sAnswer);
+                if (q.getResult().equalsIgnoreCase(q.getOption2())) {
+                    Attribute correct = ef.createAttribute("correct", "y");
+                    writer.add(correct);
+                }
+                writer.add(ef.createCharacters(q.getOption2()));
+                writer.add(eAnswer);
+
+                writer.add(sAnswer);
+                if (q.getResult().equalsIgnoreCase(q.getOption3())) {
+                    Attribute correct = ef.createAttribute("correct", "y");
+                    writer.add(correct);
+                }
+                writer.add(ef.createCharacters(q.getOption3()));
+                writer.add(eAnswer);
+
+                writer.add(sAnswer);
+                if (q.getResult().equalsIgnoreCase(q.getOption4())) {
+                    Attribute correct = ef.createAttribute("correct", "y");
+                    writer.add(correct);
+                }
+                writer.add(ef.createCharacters(q.getOption4()));
+                writer.add(eAnswer);
+
+                writer.add(sSubject);
+                writer.add(ef.createCharacters(q.getSubject()));
+                writer.add(eSubject);
+
+                writer.add(sLevel);
+                writer.add(ef.createCharacters(q.getLevel()));
+                writer.add(eLevel);
+
+                writer.add(eItem);
+            }
+
+            writer.add(eItems);
+            writer.add(eQuiz);
+
+            writer.add(ed);
+
+            writer.flush();
+            writer.close();
+        } catch (FileNotFoundException | XMLStreamException ex) {
+            Logger.getLogger(AccountDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(AccountDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

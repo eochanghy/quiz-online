@@ -11,13 +11,20 @@
  */
 package controller;
 
+import dao.AccountDAO;
 import dao.QuestionDAO;
+import dao.impl.AccountDAOImpl;
 import dao.impl.QuestionDAOImpl;
+import entity.Account;
 import entity.Question;
+import entity.QuestionSingle;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -91,11 +98,9 @@ public class MakeQuizController extends HttpServlet {
             String op2 = request.getParameter("option2").trim();
             String op3 = request.getParameter("option3").trim();
             String op4 = request.getParameter("option4").trim();
-            String[] results = request.getParameterValues("cbxOption");
-            ArrayList<String> listAnswer = new ArrayList<>();
-            for (String result : results) {
-                listAnswer.add(result);
-            }
+            String correctAnswer = request.getParameter("correctAnswer").trim();
+            String subject = request.getParameter("subject").trim();
+            String level = request.getParameter("level").trim();
             String[] opEmpty = new String[4];
             //Check question empty
             if (question.trim().isEmpty() || question.trim().length() > 200) {
@@ -114,27 +119,21 @@ public class MakeQuizController extends HttpServlet {
             if (op4.trim().isEmpty() || op1.trim().length() > 100) {
                 opEmpty[3] = "Please enter option number 4! (Max length = 100)";
             }
-            //Check answer empty
-            if (results == null) {
-                request.setAttribute("resultFail", "Please enter answers!");
-            } else if (results.length == 4) {//Check choose 4 answer
-                request.setAttribute("resultFail", "Do not choose all 4 answers!");
-            }
-            if (!question.trim().isEmpty() && question.trim().length() <= 200
-                    && !op1.trim().isEmpty() && op1.trim().length() <= 100
-                    && !op2.trim().isEmpty() && op2.trim().length() <= 100
-                    && !op3.trim().isEmpty() && op3.trim().length() <= 100
-                    && !op4.trim().isEmpty() && op4.trim().length() <= 100
-                    && results != null && results.length != 4) {
+
+            if (!question.trim().isEmpty() && question.trim().length() <= 500
+                    && !op1.trim().isEmpty() && op1.trim().length() <= 300
+                    && !op2.trim().isEmpty() && op2.trim().length() <= 300
+                    && !op3.trim().isEmpty() && op3.trim().length() <= 300
+                    && !op4.trim().isEmpty() && op4.trim().length() <= 300) {
 
                 //Get current date 
                 LocalDate dateNow = LocalDate.now();
                 DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 String strDateNow = dateFormat.format(dateNow);
-                int accountId = Integer.parseInt(request.getParameter("accountId"));
-                Question questionInsert = new Question(question, op1, op2, op3, op4, strDateNow, accountId);
+//                int accountId = Integer.parseInt(request.getParameter("accountId"));
+                QuestionSingle questionInsert = new QuestionSingle(String.valueOf(generateNewId()) ,question, op1, op2, op3, op4, correctAnswer, subject, level);
                 QuestionDAO questionDAO = new QuestionDAOImpl();
-                questionDAO.insertQuestion(questionInsert, listAnswer);
+                questionDAO.insertQuestion(questionInsert);
                 response.sendRedirect("MakeQuiz?message=success");
 
             } else {
@@ -142,13 +141,24 @@ public class MakeQuizController extends HttpServlet {
                 String[] op = {op1.trim(), op2.trim(), op3.trim(), op4.trim()};
                 request.setAttribute("op", op);
                 request.setAttribute("opEmpty", opEmpty);
-                request.setAttribute("result", results);
                 request.getRequestDispatcher(url).forward(request, response);
             }
         } catch (Exception e) {
             request.setAttribute("ex", "Error: " + e.getMessage());
             request.getRequestDispatcher("view/html/Error.jsp").forward(request, response);
         }
+    }
+
+    private int generateNewId() {
+        try {
+            QuestionDAO qsDao = new QuestionDAOImpl();
+            List<QuestionSingle> questions = qsDao.getAllQuestion();
+            int id = Integer.parseInt(questions.get(questions.size() - 1).getId())  + 1;
+            return id;
+        } catch (Exception ex) {
+            Logger.getLogger(RegisterController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 
     /**

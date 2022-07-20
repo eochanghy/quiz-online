@@ -35,13 +35,22 @@
                                     <c:if test="${not empty invalid}">
                                         <p class="invalid">${invalid}</p>
                                     </c:if>
-                                    <div class="content_body_font">Enter number of question:</div>
                                     <form action="ChooseQuestion" method="post">
-                                        <table>
-                                            <tr>
-                                                <td><input class="inputNumber" value="${numQues}" name="number"></td>
-                                            </tr>
-                                        </table>
+                                        <div class="content_body_font">Enter number of question:</div>
+                                        <input class="inputNumber" value="${numQues}" name="number">
+                                        <div class="content_body_font">Choose subject of question:</div>
+                                        <select class="inputNumber" name="subject">
+                                            <option value="Math">Math</option>
+                                            <option value="English">English</option>
+                                            <option value="Physic">Physic</option>
+                                        </select>
+                                        <div class="content_body_font">Choose level of question:</div>
+                                        <select class="inputNumber" name="level">
+                                            <option value="Easy">Easy</option>
+                                            <option value="Medium">Medium</option>
+                                            <option value="Hard">Hard</option>
+                                        </select>
+
 
                                         <div class="btnStart">
                                             <input type="submit" value="Start">

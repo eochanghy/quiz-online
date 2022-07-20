@@ -52,7 +52,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="option" onclick="handleOptionClick(this)">
-                                                        <input type="checkbox" name="option" value="1" hidden>
+                                                        <input type="checkbox" name="option" value="${question.getOption1()}" hidden>
                                                         <span class="content_body_font">${question.getOption1()}</span>
                                                     </div>
                                                 </td>
@@ -60,7 +60,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="option" onclick="handleOptionClick(this)">
-                                                        <input type="checkbox" name="option" value="2" hidden>
+                                                        <input type="checkbox" name="option" value="${question.getOption2()}" hidden>
                                                         <span class="content_body_font">${question.getOption2()}</span>
                                                     </div>
                                                 </td>
@@ -68,7 +68,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="option" onclick="handleOptionClick(this)">
-                                                        <input type="checkbox" name="option" value="3" hidden>
+                                                        <input type="checkbox" name="option" value="${question.getOption3()}" hidden>
                                                         <span class="content_body_font">${question.getOption3()}</span>
                                                     </div>
                                                 </td>
@@ -76,7 +76,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="option" onclick="handleOptionClick(this)">
-                                                        <input type="checkbox" name="option" value="4" hidden>
+                                                        <input type="checkbox" name="option" value="${question.getOption4()}" hidden>
                                                         <span class="content_body_font">${question.getOption4()}</span>
                                                     </div>
                                                 </td>

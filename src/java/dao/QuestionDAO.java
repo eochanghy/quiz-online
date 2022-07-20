@@ -11,7 +11,9 @@
 package dao;
 
 import entity.Question;
+import entity.QuestionSingle;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Defines method about question table to implement. 
@@ -27,6 +29,9 @@ import java.util.ArrayList;
  * @author Nguyen Thanh Dat
  */
 public interface QuestionDAO {
+
+    List<QuestionSingle> getAllQuestion() throws Exception;
+
     /**
      * Inserts question, answer of question to database.
      *
@@ -36,7 +41,7 @@ public interface QuestionDAO {
      * <code>java.util.ArrayList</code> object.
      * @throws java.lang.Exception
      */    
-    void insertQuestion(Question q, ArrayList<String> listAnswer) throws Exception;
+    void insertQuestion(QuestionSingle q) throws Exception;
     /**
      * Counts total question by id in question table. The result is an int number.
      *
@@ -44,7 +49,7 @@ public interface QuestionDAO {
      * @return an int number.
      * @throws java.lang.Exception
      */    
-    int countTotalQuestionById(int id) throws Exception;
+    int countTotalQuestion() throws Exception;
     /**
      * get list question with paging. All question that get by
      * accountId from row (pageSize*pageIndex - (pageSize-1)) to
@@ -59,14 +64,14 @@ public interface QuestionDAO {
      * <code>java.util.List</code> object
      * @throws java.lang.Exception
      */    
-    ArrayList<Question> getListPagingQuestion(int pageIndex, int pageSize, int accountId) throws Exception;
+    List<QuestionSingle> getListPagingQuestion(int pageIndex, int pageSize) throws Exception;
     /**
      * Counts total question in question table. The result is an int number.
      *
      * @return an int number.
      * @throws java.lang.Exception
      */        
-    int countAllQuestion() throws Exception;
+    int countAllQuestionCondition(String subject, String level) throws Exception;
     /**
      * Gets list random question in database with maximum size. The result contain
      * a list of <code>entity.Question</code> objects with id, question,
@@ -77,14 +82,14 @@ public interface QuestionDAO {
      * <code>java.util.List</code> object
      * @throws java.lang.Exception
      */    
-    ArrayList<Question> getRandomQuestion(int numQuestion) throws Exception;
+    List<QuestionSingle> getRandomQuestion(int numQuestion, String subject, String level) throws Exception;
     /**
      * Deletes question by id in question table.
      *
      * @param id the id of question. It is an int number.
      * @throws java.lang.Exception
      */     
-    void deleteQuestion(int id) throws Exception;
+    void deleteQuestion(String id) throws Exception;
     /**
      * Get largest questionId in question table. The result is an int number.
      *

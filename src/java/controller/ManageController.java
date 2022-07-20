@@ -14,8 +14,10 @@ import dao.QuestionDAO;
 import dao.impl.QuestionDAOImpl;
 import entity.Account;
 import entity.Question;
+import entity.QuestionSingle;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -56,8 +58,8 @@ public class ManageController extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
             QuestionDAO questionDAO = new QuestionDAOImpl();
             Account account = (Account) request.getSession().getAttribute("account");
-            int pageSize = 2;
-            int totalQuestion = questionDAO.countTotalQuestionById(account.getId());
+            int pageSize = 5;
+            int totalQuestion = questionDAO.countTotalQuestion();
             //Get the page you want to go to
             String index = request.getParameter("page");
             if (index == null) {
@@ -66,7 +68,7 @@ public class ManageController extends HttpServlet {
             int pageIndex = Integer.parseInt(index);
             //Calculate the number of pages
             int totalPage = (totalQuestion % pageSize == 0) ? (totalQuestion / pageSize) : (totalQuestion / pageSize) + 1;
-            ArrayList<Question> questions = questionDAO.getListPagingQuestion(pageIndex, pageSize, account.getId());
+            List<QuestionSingle> questions = questionDAO.getListPagingQuestion(pageIndex, pageSize);
 
             request.setAttribute("questions", questions);
             request.setAttribute("totalPage", totalPage);

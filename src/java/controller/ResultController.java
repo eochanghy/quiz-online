@@ -67,8 +67,8 @@ public class ResultController extends HttpServlet {
                 DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 String strDateNow = dateFormat.format(dateNow);
                 Result result = new Result(account.getId(), totalScore, strDateNow);
-                ResultDAO resultDAO = new ResultDAOImpl();
-                resultDAO.insertResult(result);
+//                ResultDAO resultDAO = new ResultDAOImpl();
+//                resultDAO.insertResult(result);
                 request.setAttribute("result", totalScore);
                 request.getSession().removeAttribute("quiz");
                 request.getRequestDispatcher("view/html/Result.jsp").forward(request, response);

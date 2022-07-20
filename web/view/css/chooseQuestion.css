@@ -2,6 +2,7 @@
 .inputNumber{
     width: 80px;
     margin-top: 5px;
+    pading: 5px 7px;
     border-radius: 5px;
     border: 1px solid #7a7a7a;
 }

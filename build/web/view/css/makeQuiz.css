@@ -8,3 +8,32 @@
     height: 50px;
     resize: none;
 }
+textarea {
+    height: auto;
+}
+.form-control {
+    border: none;
+    border-bottom: 1px solid #d9d9d9;
+    border-radius: 0;
+}
+.form-control:active, .form-control:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: #000;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+p {
+    font-weight: bold;
+    margin: 5px;
+}
+.submitBtn {
+    margin-top: 25px;
+    padding: 10px;
+    width: 100%;
+    color: #fff;
+    background-color:  #8fc4b7;
+    
+}

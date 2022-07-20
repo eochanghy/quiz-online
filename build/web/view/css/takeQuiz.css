@@ -1,7 +1,11 @@
 #timeRemain,.btnNext{
     text-align: right;
 }
+table {
+    width: 100%;
+}
 .option{
+    width: 100%;
     background-color: #e6e4e4;
     padding: 12px;
     font-size: 16px;

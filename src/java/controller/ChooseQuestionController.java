@@ -78,6 +78,9 @@ public class ChooseQuestionController extends HttpServlet {
             throws ServletException, IOException {
         try {
             String strNumQuestion = request.getParameter("number").trim();
+            String subject = request.getParameter("subject").trim();
+            String level = request.getParameter("level").trim();
+            System.out.println("subject: "+subject + ", level: "+level);
             int numQuestion = 0;
             String url = "view/html/ChooseQuestion.jsp";
             QuestionDAO questionDAO = new QuestionDAOImpl();
@@ -88,13 +91,13 @@ public class ChooseQuestionController extends HttpServlet {
             } else {
 
                 numQuestion = Integer.parseInt(strNumQuestion);
-                if (numQuestion < 1 || numQuestion > questionDAO.countAllQuestion()) {
+                if (numQuestion < 1 || numQuestion > questionDAO.countAllQuestionCondition(subject, level)) {
                     request.setAttribute("invalid", "Number of questions must be"
-                            + " greater than 1 and less than " + questionDAO.countAllQuestion() + "!");
+                            + " greater than 1 and less than " + questionDAO.countAllQuestionCondition(subject, level) + "!");
                     request.setAttribute("numQues", strNumQuestion);
                     request.getRequestDispatcher(url).forward(request, response);
                 } else {
-                    response.sendRedirect("TakeQuiz?number=" + numQuestion);
+                    response.sendRedirect("TakeQuiz?number=" + numQuestion+"&subject="+subject+"&level="+level);
                 }
 
             }

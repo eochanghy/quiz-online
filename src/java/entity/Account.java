@@ -24,6 +24,8 @@ public class Account {
     private String password;
     private String type;
     private String email;
+    private int age;
+    private String className;
 
     /**
      * Parameterless constructor used to initialize a
@@ -47,12 +49,40 @@ public class Account {
      * @param email the email of Account. It is a <code>java.lang.String</code>
      * object
      */
+    
+    
+    public Account(int id, String name, String password, String type, String email, int age, String className) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.type = type;
+        this.email = email;
+        this.age = age;
+        this.className = className;
+    }
+
     public Account(int id, String name, String password, String type, String email) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.type = type;
         this.email = email;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
     }
 
     /**
